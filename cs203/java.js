@@ -25,3 +25,16 @@ window.onload=function(){
     })(this[0]));
 
   }
+
+  // function createNav(id, content) {
+  //       return `<head>
+  //           <meta charset="utf-8">
+  //           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  //           <link rel="stylesheet" href="Styles/style.css">
+  //           <link rel="stylesheet" href="Styles/loginstyle.css">
+  //           <link rel="shortcut icon" href="images\logo.ico">
+  //           <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  //           <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+  //           <title>BreadBuilder</title>
+  //       </head>`;
+  //   }
