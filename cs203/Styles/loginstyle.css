@@ -15,6 +15,8 @@
 .whiteloginrect{
   position: absolute;
   display: flex;
+  justify-content: center;
+  align-items: baseline;
   width: 40%;
   height: 60%;
   top:50%;
@@ -23,12 +25,30 @@
 
   background: #FFFFFF;
   border-radius: 60px;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 350;
+  font-size: 35px;
+  line-height: 42px;
+  /* identical to box height */
+
+  color: #785E47;
+}
+
+.cancelBtn{
+  display: flex;
+  width: 6.5%;
+  height: 6.5%;
+  float: right;
+  margin-right: 5px;
 }
 
 .logintext{
   /* Enter Login */
 
 position: absolute;
+display: flex;
 top:50%;
 left:50%;
 transform:translate(-50%,-550%);
@@ -44,19 +64,21 @@ color: #785E47;
 
 }
 
-.loginbox{
-  /* Rectangle 122 */
 
+.usernamebox{
+  /* Rectangle 122 */
   position: absolute;
   width: 60%;
   height: 10%;
   top:50%;
   left:50%;
+  transform:translate(-50%,-250%);
 
   text-align:center;
   vertical-align:middle;
   justify-content:center;
   align-items: center;
+  display: flex;
   /* Enter Username */
 
   font-family: 'Karla';
@@ -70,13 +92,33 @@ color: #785E47;
 
   background: #DCDCDC;
   border-radius: 15px;
-
-}
-.loginbox{
-  /* Rectangle 122 */
-  transform:translate(-50%,-250%);
 }
 .passwordbox{
   /* Rectangle 123 */
-  transform:translate(-50%,-200%);
+
+  position: absolute;
+  width: 60%;
+  height: 10%;
+  top:60%;
+  left:50%;
+  transform:translate(-50%,0%);
+
+  text-align:center;
+  vertical-align:middle;
+  justify-content:center;
+  align-items: center;
+  display: flex;
+  /* Enter Username */
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+
+  color: #412711;
+
+  background: #DCDCDC;
+  border-radius: 15px;
 }
