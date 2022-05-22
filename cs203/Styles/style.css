@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+/* color variables */
+:root {
+  --primary: #BC977B;
+  --dark: #785E47;
+  --light: #FFFFFF;
+  --black: #000000;
+}
+
 body {
   height: 100vh;
   background: linear-gradient(#BC977B, white);
@@ -102,19 +110,19 @@ nav {
   grid-column-gap: 1em; */
 }
 
-.center_text{
+.center_text {
   position: absolute;
   top: 40%;
   left: 50%;
 }
 
-.center_text h1{
+.center_text h1 {
   color: white;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
 }
 
-.img_container .abt_img  {
+.img_container .abt_img {
   width: 100%;
   border-radius: 25px;
 }
@@ -130,4 +138,25 @@ nav {
   /* WARNING: END */
 }
 
-/* about us page stlying start */
+/* about us page stlying end */
+/* quiz styling start */
+.header h1 {
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+}
+
+.quiz_container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.quiz_option{
+  background: var(--dark);
+  text-align: center;
+  padding: 2rem 2rem;
+  box-shadow: var(--primary);
+  border-radius: 20px;
+}
+
+/* quiz styling start */
