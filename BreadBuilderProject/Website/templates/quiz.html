@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css">
-    <link rel="shortcut icon" href="static/images/logo.ico">
-
-    <!-- google fonts links -->
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet"/>
-
-    <!-- fontawesome kit -->
-    <script src="https://kit.fontawesome.com/eeb3ca3e76.js" crossorigin="anonymous"></script>
-    <title>BreadBuilder</title>
-</head>
-
-<body>
-<!-- naviation bar start -->
-<nav>
-    <div class="logo">
-        <img src="static/images/logo.png" alt="Our Super Cool Logo">
-        <h4>Bread Builder</h4>
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="templates/index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="login.html" class="active">Log in</a></li>
-    </ul>
-</nav>
-<!-- naviation bar end -->
+{% block content %}
 
 <!-- quiz page start -->
 <div class="wrapper">
@@ -49,7 +19,18 @@
             <h4>Once or twice a week</h4>
             <p>casual/starter saver</p>
             <a href="#" class="btn">Option 1</a>
+
+            <!--latest changes-->
+            <button id="myBtn">Option 1</button>
         </div>
+        <div id="myModal" class="modal">
+            <div class="modal_content">
+                <h1>You have selected Option 1: Casual saver</h1>
+                <p>We will put away 15% of your income into your savings for you! This way you don't have to worry about
+                    it</p>
+            </div>
+        </div>
+        <!--latest changes end-->
 
         <!-- option 2: save $100~ OR 30-40% of income -->
         <div class="quiz_option option_b">
@@ -77,14 +58,13 @@
         <!-- quiz options end -->
     </div>
 
+    <!--    modal section-->
+    <div class="bg_modal">
+        <div class="modal_content">
+
+        </div>
+    </div>
+
 </div>
 
-<!-- quiz page end -->
-
-<!-- Including javascript -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="javascript.js"></script>
-</body>
-
-</html>
+{% endblock %}
