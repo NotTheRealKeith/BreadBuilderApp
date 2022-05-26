@@ -36,31 +36,35 @@
   color: #785E47;
 }
 
+.loginbox{
+  display: inline;
+}
+
 .cancelBtn{
+  position: absolute;
   display: flex;
-  width: 6.5%;
-  height: 6.5%;
-  float: right;
-  margin-right: 5px;
+  width: 5%;
+  right: 5%;
+  top: 5%;
 }
 
 .logintext{
   /* Enter Login */
 
-position: absolute;
-display: flex;
-top:50%;
-left:50%;
-transform:translate(-50%,-550%);
+    position: absolute;
+    display: flex;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-550%);
 
-font-family: 'Lato';
-font-style: normal;
-font-weight: 350;
-font-size: 35px;
-line-height: 42px;
-/* identical to box height */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 35px;
+    line-height: 42px;
+    /* identical to box height */
 
-color: #785E47;
+    color: #785E47;
 
 }
 
@@ -70,13 +74,13 @@ color: #785E47;
   position: absolute;
   width: 60%;
   height: 10%;
-  top:50%;
+  top:52%;
   left:50%;
   transform:translate(-50%,-250%);
 
-  text-align:center;
-  vertical-align:middle;
-  justify-content:center;
+  text-align: left;
+  padding-left: 5%;
+  vertical-align: middle;
   align-items: center;
   display: flex;
   /* Enter Username */
@@ -99,13 +103,13 @@ color: #785E47;
   position: absolute;
   width: 60%;
   height: 10%;
-  top:60%;
+  top:45%;
   left:50%;
   transform:translate(-50%,0%);
 
-  text-align:center;
-  vertical-align:middle;
-  justify-content:center;
+  text-align: left;
+  padding-left: 5%;
+  vertical-align: middle;
   align-items: center;
   display: flex;
   /* Enter Username */
@@ -121,4 +125,50 @@ color: #785E47;
 
   background: #DCDCDC;
   border-radius: 15px;
+}
+
+.enterbox{
+  position: absolute;
+  width: 30%;
+  height: 10%;
+  top: 68%;
+  left:50%;
+  transform:translate(-50%,0%);
+
+  /* text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  display: flex; */
+  /* Enter Username */
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 22px;
+  color: white;
+
+  background: #785E47;
+  border-radius: 15px;
+}
+
+p{
+  position: absolute;
+  top:80%;
+  left:50%;
+  transform:translate(-50%,0%);
+
+  text-align: center;
+  padding-left: 5%;
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
+  /* Enter Username */
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+
+  color: #412711;
 }
