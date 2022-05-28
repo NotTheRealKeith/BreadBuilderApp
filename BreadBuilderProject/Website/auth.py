@@ -45,15 +45,13 @@ def signup():
             flash('Username already exists.', category='error')
         elif password1 != password2:
             flash('Passwords don\'t match.', category='error')
-        elif len(password1) < 7:
-            flash('Password must be at least 7 characters.', category='error')
+        elif len(password1) < 5:
+            flash('Password must be at least 5 characters.', category='error')
         else:
-            new_user = User(username=username, password=generate_password_hash(
-                password1, method='sha256'))
+            new_user = User(username=username, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('views.home'))
-
+            return redirect(url_for('views.quiz'))
     return render_template("signup.html", user=current_user)
