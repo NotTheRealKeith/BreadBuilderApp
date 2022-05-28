@@ -13,15 +13,27 @@
         <h3 class="logintext">Enter Login</h3>
         <img src="../static/images/cancel.png" class="cancelBtn">
       </div>
-      <div class="usernamebox">
-        Enter Username
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="username"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="Enter username"
+        />
       </div>
-      <div class="passwordbox">
-        Enter Password
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+        />
       </div>
-      <div class="enterbox">
-        Login
-      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
       <p class="signuptext">Don’t have an account? </p>
       <p class="signuptextbrown">Sign Up</p>
     </div>
