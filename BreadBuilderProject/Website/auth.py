@@ -58,3 +58,7 @@ def signup():
             return redirect(url_for('views.quiz'))
 
     return render_template("signup.html", user=current_user)
+
+@auth.route('/quiz')
+def quiz():
+    return render_template('home.html')
