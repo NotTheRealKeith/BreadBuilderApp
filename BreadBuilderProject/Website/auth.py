@@ -4,9 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
-
 auth = Blueprint('auth', __name__)
-
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -44,7 +42,7 @@ def signup():
 
         user = User.query.filter_by(username=username).first()
         if user:
-            flash('Email already exists.', category='error')
+            flash('Username already exists.', category='error')
         elif password1 != password2:
             flash('Passwords don\'t match.', category='error')
         elif len(password1) < 5:
@@ -56,9 +54,13 @@ def signup():
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
             return redirect(url_for('views.quiz'))
+<<<<<<< HEAD
+    return render_template("signup.html", user=current_user)
+=======
 
     return render_template("signup.html", user=current_user)
 
 @auth.route('/quiz')
 def quiz():
     return render_template('home.html')
+>>>>>>> fabf7ffdb717deb247a6419d400e3ef1dcb2bb84
