@@ -58,9 +58,13 @@ def signup():
     return render_template("signup.html", user=current_user)
 =======
 
+<<<<<<< HEAD
     return render_template("signup.html", user=current_user)
 
 @auth.route('/quiz')
 def quiz():
     return render_template('home.html')
 >>>>>>> fabf7ffdb717deb247a6419d400e3ef1dcb2bb84
+=======
+    return render_template("signup.html", user=current_user)
+>>>>>>> parent of fabf7ff (Merge pull request #8 from NotTheRealKeith/keith)
