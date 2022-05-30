@@ -59,6 +59,11 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
-@auth.route('/quiz')
+@auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
-    return render_template('home.html')
+    if request.method == 'POST':
+        if request.form['week_button'] in quiz.form:
+            pass
+    else:
+        return redirect(url_for('views.home'))
+    return render_template('quiz.html', user=current_user)

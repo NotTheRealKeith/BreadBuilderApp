@@ -18,6 +18,54 @@
         </dev>
 
     </dev>
+    <dev class = "expenseRect container-flex">
+        <form method="POST">
+          <h3 align="center">Add Transaction</h3>
+          <div class="form-group">
+            <label for="trans_name">Name</label>
+            <input
+              type="trans_name"
+              class="form-control"
+              id="trans_name"
+              name="trans_name"
+              placeholder="Enter name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="amount"
+              class="form-control"
+              id="amount"
+              name="amount"
+              placeholder="Enter amount"
+            />
+          </div>
+            <div class="form-group">
+            <label for="date">Date Due</label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              name="date"
+              placeholder="Date Due"
+            />
+          </div>
+            <div class="form-group">
+            <label for="frequency">Frequency</label>
+            <input
+              type="frequency"
+              class="form-control"
+              id="frequency"
+              name="frequency"
+              placeholder="Frequency"
+            />
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary">Confirm</button>
+        </form>
+
+    </dev>
 </dev>
 
 {% endblock %}
