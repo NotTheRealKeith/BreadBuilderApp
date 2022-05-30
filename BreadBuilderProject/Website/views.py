@@ -30,3 +30,7 @@ def quiz():
 @views.route('/')
 def welcome():
     return render_template('welcome.html', user=current_user)
+<<<<<<< HEAD
+
+=======
+>>>>>>> fabf7ffdb717deb247a6419d400e3ef1dcb2bb84
