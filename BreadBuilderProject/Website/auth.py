@@ -54,17 +54,17 @@ def signup():
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
             return redirect(url_for('views.quiz'))
-<<<<<<< HEAD
-    return render_template("signup.html", user=current_user)
-=======
 
-<<<<<<< HEAD
     return render_template("signup.html", user=current_user)
 
-@auth.route('/quiz')
+
+@auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
-    return render_template('home.html')
->>>>>>> fabf7ffdb717deb247a6419d400e3ef1dcb2bb84
-=======
-    return render_template("signup.html", user=current_user)
->>>>>>> parent of fabf7ff (Merge pull request #8 from NotTheRealKeith/keith)
+    if request.method == 'POST':
+        if request.form['week_button'] in quiz.form:
+            pass
+    else:
+        return redirect(url_for('views.home'))
+    return render_template('quiz.html', user=current_user)
+
+
