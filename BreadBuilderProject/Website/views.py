@@ -23,12 +23,4 @@ def quiz():
 
 @views.route('/')
 def welcome():
-<<<<<<< HEAD
     return render_template('welcome.html', user=current_user)
-<<<<<<< HEAD
-
-=======
->>>>>>> fabf7ffdb717deb247a6419d400e3ef1dcb2bb84
-=======
-    return render_template('welcome.html', user=current_user)
->>>>>>> parent of fabf7ff (Merge pull request #8 from NotTheRealKeith/keith)
