@@ -2,27 +2,34 @@
 .expenseRect{
     display: flex;
     position: absolute;
-    width: 345px;
-    height: 345px;
-    left: 122px;
-    top: 160px;
+    width: 30%;
+    height: 50%;
+    top: 20%;
+    left: 10%;
 
     background: #FFFFFF;
     border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewExpenseRect{
+    display: flex;
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    top: 20%;
+    left: 60%;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
 
 }
 
-
-.expenseRect3{
-    display: flex;
-    position: absolute;
-    width: 30% !important;
-    height: 20% !important;
-    top: 20% !important;
-    left: 50% !important;
-
-    background: #FFFFFF;
-    border-radius: 20px;
-
+.list-group{
+    padding-top: 10%;
+    width: 80%;
 }
 
