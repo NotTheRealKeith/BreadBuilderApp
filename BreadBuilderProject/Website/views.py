@@ -1,7 +1,5 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from . import db
-import json
 
 views = Blueprint('views', __name__)
 
@@ -11,21 +9,17 @@ views = Blueprint('views', __name__)
 def home():
     return render_template("home.html", user=current_user)
 
-
 @views.route('/about')
 def about():
     return render_template('about.html', user=current_user)
-
 
 @views.route('/report')
 def report():
     return render_template('report.html', user=current_user)
 
-
 @views.route('/quiz')
 def quiz():
     return render_template('quiz.html', user=current_user)
-
 
 @views.route('/')
 def welcome():

@@ -110,13 +110,13 @@ nav {
   grid-column-gap: 1em; */
 }
 
-/*.center_text {
+.center_text {
   position: absolute;
-  top: 10%;
+  top: 40%;
   left: 50%;
-}*/
+}
 
-.center_text h3 {
+.center_text h1 {
   color: white;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
@@ -127,15 +127,22 @@ nav {
   border-radius: 25px;
 }
 
+/* WARNING: DELETE THIS SHIT LATER, THIS IS ONLY FOR DIFFERENTIATING */
+.wrapper div {
+  background: gray;
+  padding: 1em;
+}
+
+.wrapper div:nth-child(odd) {
+  background: #ddd;
+  /* WARNING: END */
+}
 
 /* about us page stlying end */
-
 /* quiz styling start */
-
-
-.jumbotron  {
+.header h1 {
   text-align: center;
-  border-radius: 0 0 20px 20px !important;
+  font-family: 'Karla', sans-serif;
 }
 
 .quiz_container {
@@ -145,10 +152,11 @@ nav {
 }
 
 .quiz_option{
-  background: var(--light);
+  background: var(--dark);
   text-align: center;
   padding: 2rem 2rem;
+  box-shadow: var(--primary);
   border-radius: 20px;
 }
 
-/* quiz styling end */
+/* quiz styling start */
