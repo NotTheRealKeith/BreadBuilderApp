@@ -16,7 +16,8 @@ window.onload=function(){
 
   }
 
-//TEMPORARYY ADD
+// modal JS start
+
   // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -43,3 +44,4 @@ window.onclick = function(event) {
   }
 }
 
+// modal JS end
