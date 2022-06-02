@@ -1,10 +1,40 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, Markup, jsonify, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
+
+labels = [
+    'Gas', 'Rent', 'Food'
+]
+
+values = [
+    70, 200, 70
+]
+
+colors = [
+    "#F7464A", "#46BFBD", "#FDB45C"
+]
+# @auth.route('/home', methods=['GET', 'POST'])
+# def dash(username):
+#     if request.method == 'POST':
+#         transType = request.form.get('transType')
+#         name = request.form.get('name')
+#         amount = request.form.get('amount')
+#         dateDue = request.form.get('dateDue')
+#         frequency = request.form.get('frequency')
+#
+#         user = User.query.filter_by(username=username).first()
+#
+#     return render_template("home.html", user=current_user)
+
+@auth.route('/report')
+def report():
+    pie_labels = labels
+    pie_values = values
+    return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():

@@ -5,60 +5,47 @@
 
 <dev class = "dashboard">
     <dev class = "expenseRect">
-        <h3> Upcoming Expenses </h3>
-        <dev class = "listItem">
-            <li>Food</li>
-            <li>Netflix</li>
-            <li>WoF</li>
-        </dev>
-        <dev class = "listPrice">
-            <li>$40</li>
-            <li>$19</li>
-            <li>$70</li>
-        </dev>
-
-    </dev>
-    <dev class = "expenseRect">
         <form method="POST">
           <h3 align="center">Add Transaction</h3>
             <br>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-secondary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Expense
+                <input type="radio" name="transType" id="option1" autocomplete="off" checked> Expense
               </label>
               <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Income
+                <input type="radio" name="transType" id="option2" autocomplete="off"> Income
               </label>
             </div>
           <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
               </div>
-              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+              <input type="text" name="name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
             </div>
           <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text">$</span>
               </div>
-              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <input type="text" name="amount" class="form-control" aria-label="Amount (to the nearest dollar)">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-            <span class="input-group-text">Date Due</span>
+            <span class="input-group-text" for="dateDue">Date Due</span>
                   </div>
             <input
               type="date"
+              name="dateDue"
               class="form-control"
-              id="date"
+              id="dateDue"
               aria-label="Default"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Frequency</label>
+                <label class="input-group-text" for="frequency">Frequency</label>
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
+              <select class="custom-select" id="frequency" name="frequency">
                 <option selected>Choose...</option>
                 <option value="1">One Time</option>
                 <option value="2">Weekly</option>
@@ -74,8 +61,8 @@
     </dev>
 
     <dev class = "viewExpenseRect">
-            <h3 align="center">Upcoming Expenses</h3>
-        <br>
+            <h3 class="titleExpense">Upcoming Expenses</h3>
+                <br>
                 <ul class="list-group">
               <li class="list-group-item">
                 Netflix
