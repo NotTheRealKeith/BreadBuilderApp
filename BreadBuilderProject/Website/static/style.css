@@ -1,58 +1,4 @@
 /* universal reset */
-
-/* Menu Icon */
-.hamb{
-    cursor: pointer;
-    float: right;
-    padding: 40px 20px;
-}/* Style label tag */
-
-.hamb-line {
-    background: var(--white);
-    display: block;
-    height: 2px;
-    position: relative;
-    width: 24px;
-
-} /* Style span tag */
-
-.hamb-line::before,
-.hamb-line::after{
-    background: var(--white);
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-.hamb-line::before{
-    top: 5px;
-}
-.hamb-line::after{
-    top: -5px;
-}
-
-.side-menu {
-    display: none;
-} /* Hide checkbox */
-
-/* Toggle menu icon */
-.side-menu:checked ~ nav{
-    max-height: 100%;
-}
-.side-menu:checked ~ .hamb .hamb-line {
-    background: transparent;
-}
-.side-menu:checked ~ .hamb .hamb-line::before {
-    transform: rotate(-45deg);
-    top:0;
-}
-.side-menu:checked ~ .hamb .hamb-line::after {
-    transform: rotate(45deg);
-    top:0;
-}
-
 * {
   margin: 0px;
   padding: 0px;
@@ -72,49 +18,15 @@ body {
   height: 100vh;
   background: linear-gradient(#BC977B, white);
 }
-.header{
-    background-color: var(--white);
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-/* Logo */
-.logo{
-    display: inline-block;
-    color: var(--white);
-    font-size: 60px;
-    margin-left: 10px;
-}
 
 /* nav styling start */
-/* Nav menu */
-.nav{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: var(--black);
-    overflow: hidden;
-
-}
-.menu a{
-    display: block;
-    padding: 30px;
-    color: var(--white);
-}
-.menu a:hover{
-    background-color: var(--gray);
-}
-.nav{
-    max-height: 0;
-    transition: max-height .5s ease-out;
-}
-
-a{
-    text-decoration: none;
-}
-
-ul{
-    list-style: none;
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
 }
 
 .logo img {
@@ -129,63 +41,49 @@ ul{
   letter-spacing: 1px;
   font-size: 35px;
 }
-@media (min-width: 850px) {
-    .nav{
-            max-height: none;
-            top: 0;
-            position: relative;
-            float: right;
-            width: fit-content;
-        }
-    .menu li{
-        float: left;
-    }
-    .menu a:hover{
-        background-color: transparent;
-        color: var(--gray);
 
-    }
-    .hamb{
-        display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: space-around;
-      width: 20%;
-    }
-
-    .nav-links li {
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: black;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .nav-links a:hover {
-      border-bottom: 3px solid black;
-    }
-
-    .nav-links a.active {
-      border-bottom: 3px solid black;
-    }
+.logo h4{
+  padding-top: 5px;
+  font-size: 32px;
 }
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: black;
+  font-weight: normal;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+
+
+/*.nav-links a.active {
+  border-bottom: 3px solid black;
+}*/
+
 /* nav styling end */
+/*welcome page styling start*/
 .home {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 100px 0;
+  margin-top: 100px;
 }
 
-.col1 {
+/*.col1 {
   flex-basis: 40%;
   position: relative;
   margin-left: 150px;
-}
+}*/
 
 .col1 h1 {
   font-size: 70px;
@@ -193,40 +91,38 @@ ul{
 }
 
 .col1 h4 {
-  font-size: 20px;
+  font-size: 24px;
   color: white;
   font-weight: 20;
 }
 
-.col2 {
+/*.col2 {
   position: relative;
   flex-basis: 60%;
   display: flex;
   align-items: center;
-}
+}*/
 
 .col2 .book {
-  width: 60%;
-  margin: 30px;
+  width: 100%;
+  /*margin: 30px; took this out because it was not centered*/
 }
-
-/* about us page stlying start */
+/*welcome page styling end*/
+/* about us page styling start */
 .wrapper {
   display: grid;
-  /* grid-template-columns: 30% 30% 30%;
-  grid-column-gap: 1em; */
+
 }
 
-.center_text {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-}
-
-.center_text h1 {
-  color: white;
+.center_text h3 {
+  color: black;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
+}
+
+.img_container {
+  padding-top:2vh;
+  padding-bottom:1vh;
 }
 
 .img_container .abt_img {
@@ -234,22 +130,36 @@ ul{
   border-radius: 25px;
 }
 
-/* WARNING: DELETE THIS SHIT LATER, THIS IS ONLY FOR DIFFERENTIATING */
-.wrapper div {
-  background: gray;
-  padding: 1em;
-}
-
-.wrapper div:nth-child(odd) {
-  background: #ddd;
-  /* WARNING: END */
-}
-
-/* about us page stlying end */
-/* quiz styling start */
-.header h1 {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
   text-align: center;
-  font-family: 'Karla', sans-serif;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+/* about us page styling end */
+/* quiz styling start */
+.jumbotron  {
+  text-align: center;
+  border-radius: 0 0 20px 20px !important;
 }
 
 .quiz_container {
@@ -259,11 +169,19 @@ ul{
 }
 
 .quiz_option{
-  background: var(--dark);
+  background: var(--light);
   text-align: center;
   padding: 2rem 2rem;
-  box-shadow: var(--primary);
   border-radius: 20px;
 }
+/* quiz styling end */
 
-/* quiz styling start */
+/*profile styling start*/
+.btn_size{
+  width: 20%;
+}
+
+.jumbo2{
+  background-color: var(--dark);
+}
+/*profile styling start*/
