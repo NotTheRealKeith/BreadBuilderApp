@@ -10,3 +10,6 @@ THINGS YOU NEED TO IN PYCHARM TERMINAL:
 3. pip install flask
 4. pip install flask-sqlalchemy
 5. pip install flask-login
+
+
+Debug main.py and click link to run application
