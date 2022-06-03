@@ -1,10 +1,14 @@
+# Laras code for authorizing users and information
+
 from flask import Blueprint, Markup, jsonify, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, AddRecord, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
+
+# Labels, values and colours for pie chart
 
 labels = [
     'Gas', 'Rent', 'Food'
@@ -17,24 +21,33 @@ values = [
 colors = [
     "#F7464A", "#46BFBD", "#FDB45C"
 ]
-# @auth.route('/home', methods=['GET', 'POST'])
-# def dash(username):
-#     if request.method == 'POST':
-#         transType = request.form.get('transType')
-#         name = request.form.get('name')
-#         amount = request.form.get('amount')
-#         dateDue = request.form.get('dateDue')
-#         frequency = request.form.get('frequency')
-#
-#         user = User.query.filter_by(username=username).first()
-#
-#     return render_template("home.html", user=current_user)
+
+# Authorising form post from home page for transactions, sending to database
+
+@auth.route('/home', methods=['GET', 'POST'])
+def home():
+    form1 = AddRecord()
+    if form1.validate_on_submit():
+        transType = request.form.get('transType')
+        name = request.form.get('name')
+        amount = request.form.get('amount')
+        dateDue = request.form.get('dateDue')
+        frequency = request.form.get('frequency')
+
+        new_trans = Transaction(transType=transType, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
+        db.session.add(new_trans)
+        db.session.commit()
+    return render_template("home.html", user=current_user)
+
+# Showing a pie chart in reports page
 
 @auth.route('/report')
 def report():
     pie_labels = labels
     pie_values = values
     return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
+
+# Authorising user login by checking their username and password with the database
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -56,12 +69,15 @@ def login():
     return render_template("login.html", user=current_user)
 
 
+# Logging out the user
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+# Signing up user through post form and sending the information to database
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -87,6 +103,7 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
+# Once user is signed up the template will show quizpage
 
 @auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
