@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--profile page start-->
+<div class="container-fluid">
+
+    <!--Profile header-->
+    <div class="jumbotron jumbo2">
+        <i class="fa-solid fa-user fa-5x"></i>
+        <h1>Tony Tony Chopper</h1>
+        <h3>Super Saver</h3>
+    </div>
+
+    <!--user details-->
+    <div class="container">
+        <h2>Account Details</h2>
+        <form action="/action_page.php">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="users email here" name="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Current Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="current password" name="pwd">
+            </div>
+            <!--new password-->
+            <div class="form-group">
+                <label for="pwd">New Password:</label>
+                <input type="password" class="form-control" id="pwd_new" placeholder="enter new password" name="pwd">
+            </div>
+
+            <br>
+
+            <div class="btn_size">
+                <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<!--profile page end-->
+
+{% endblock %}
