@@ -1,11 +1,16 @@
+# Lara's Code initializing the application
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
+# Creating the database
+
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
+# Creating the app and using blue print to register our auth.py and views.py
 
 def create_app():
     app = Flask(__name__)
@@ -24,6 +29,8 @@ def create_app():
 
     create_database(app)
 
+    # Using login manager to authorize users when logging into the app
+
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
@@ -34,6 +41,7 @@ def create_app():
 
     return app
 
+# Creating our database
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):

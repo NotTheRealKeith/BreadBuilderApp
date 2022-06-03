@@ -1,26 +1,16 @@
-#my-pie-chart {
-    height: 100px;
-    width: 100px;
+
+h1{
+  color: white;
+  letter-spacing: 1px;
+  top: 10%;
 }
 
-#my-pie-chart {
-  border-radius: 50%;
-}
 
-#my-pie-chart {
-  background: conic-gradient(brown 0.00%, black 0.00% 0.55%, blue 0.55% 6.08%, green 6.08% 13.68%, yellow 13.68% 23.27%, orange 23.27% 40.47%, red 40.47%);
-}
-
-.ReportContainer{
-    display: flex;
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    top: 20%;
-    left: 10%;
-
-    background: #FFFFFF;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
+.pieImg {
+    position absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 10%;
+    width: 50%;
 }
