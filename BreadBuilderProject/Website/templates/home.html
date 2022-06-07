@@ -1,11 +1,13 @@
-{% extends "base.html" %}
+<!--Laras Code-->
+
+{% extends "base.html" %} <!--Inherits from base html-->
 
 {% block content %}
 <link rel="stylesheet" href="../static/home.css">
 
-<dev class = "dashboard">
+<dev class = "dashboard"> <!--Creating a whole dashboard-->
     <dev class = "expenseRect">
-        <form method="POST">
+        <form method="POST"> <!--Using forms to get all transaction data-->
           <h3 align="center">Add Transaction</h3>
             <br>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -55,12 +57,12 @@
               </select>
             </div>
           <br />
-          <button type="submit" class="btn btn-primary">Confirm</button>
+          <button type="submit" class="btn btn-primary">Confirm</button> <!--Once button is pressed it will send info to auth.py-->
         </form>
 
     </dev>
 
-    <dev class = "viewExpenseRect">
+    <dev class = "viewExpenseRect"> <!--Will change to show expenses from file and show them in a loop-->
             <h3 class="titleExpense">Upcoming Expenses</h3>
                 <br>
                 <ul class="list-group">
