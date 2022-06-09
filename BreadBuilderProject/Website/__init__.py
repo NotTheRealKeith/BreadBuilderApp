@@ -7,20 +7,20 @@ from flask_login import LoginManager
 
 # Creating the database
 
+databases = {
+    'db1': 'sqlite:///database.db',
+    'db2': 'sqlite:///database2.db'
+}
 db = SQLAlchemy()
-db2 = SQLAlchemy()
-DB_NAME = "database.db"
-DB_NAME2 = "database2.db"
 
 # Creating the app and using blue print to register our auth.py and views.py
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'bornana'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME2}'
+    app.config['SQLALCHEMY_BINDS'] = databases
     db.init_app(app)
-    db2.init_app(app)
+
 
     from .views import views
     from .auth import auth
@@ -48,6 +48,6 @@ def create_app():
 # Creating our database
 
 def create_database(app):
-    if not path.exists('website/' + DB_NAME or 'website/' + DB_NAME2):
+    if not path.exists('website/database.db' or 'website/database2.db'):
         db.create_all(app=app)
         print('Created Database!')
