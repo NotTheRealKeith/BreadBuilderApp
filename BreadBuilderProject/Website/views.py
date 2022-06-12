@@ -1,7 +1,9 @@
-# Laras code for rendering html files
+# Lara & Keith's code for rendering html files
 
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
+from Website.models import UpdateAccountForm
+from . import db
 
 views = Blueprint('views', __name__)
 
@@ -12,25 +14,38 @@ views = Blueprint('views', __name__)
 def home():
     return render_template("home.html", user=current_user)
 
+
 # Shows about page
 @views.route('/about')
 def about():
     return render_template('about.html', user=current_user)
+
 
 # Shows report page
 @views.route('/report')
 def report():
     return render_template('report.html', user=current_user)
 
+
 # Shows quiz page
 @views.route('/quiz')
 def quiz():
     return render_template('quiz.html', user=current_user)
 
-# Shows profile page
-@views.route('/profile')
+
+# Shows profile page and allows for updating
+@views.route('/profile', methods=['GET', 'POST'])
 def profile():
-    return render_template('profile.html', user=current_user)
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        db.session.commit()
+        flash('You have updated your username!')
+        return redirect(url_for('views.profile'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        return render_template('profile.html', user=current_user, form=form)
+
 
 # Shows welcome page
 @views.route('/')
