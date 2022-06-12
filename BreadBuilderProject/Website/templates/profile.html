@@ -20,16 +20,16 @@
         <form action="/action_page.php">
             <div class="form-group">
                 <label for="email">Username:</label>
-                <input type="email" class="form-control" id="email" placeholder="{{ current_user.username }}" name="email">
+                <input type="email" class="form-control" id="email" placeholder="{{ current_user.username }} (Type here to update)" name="email">
             </div>
             <div class="form-group">
-                <label for="pwd">Current Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="{{ current_user.password1 }}" name="pwd">
+                <label for="pwd">Enter new Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="New password" name="pwd">
             </div>
             <!--new password-->
             <div class="form-group">
-                <label for="pwd">New Password:</label>
-                <input type="password" class="form-control" id="pwd_new" placeholder="enter new password" name="pwd">
+                <label for="pwd">Re-Enter new Password:</label>
+                <input type="password" class="form-control" id="pwd_new" placeholder="Confirm new password" name="pwd">
             </div>
 
             <br>
