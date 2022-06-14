@@ -5,6 +5,7 @@ from .models import User, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+from datetime import datetime
 
 auth = Blueprint('auth', __name__)
 
@@ -32,6 +33,7 @@ def home():
         name = request.form.get('name')
         amount = request.form.get('amount')
         dateDue = request.form.get('dateDue')
+        dateDue= datetime.strptime(dateDue, "%Y-%M-%d")
         frequency = request.form.get('frequency')
 
         new_trans = Transaction(transType=transType, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
