@@ -10,6 +10,7 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
+
 # Creating the app and using blue print to register our auth.py and views.py
 
 def create_app():
@@ -26,7 +27,6 @@ def create_app():
 
     from .models import User
 
-
     create_database(app)
 
     # Using login manager to authorize users when logging into the app
@@ -40,6 +40,7 @@ def create_app():
         return User.query.get(int(id))
 
     return app
+
 
 # Creating our database
 

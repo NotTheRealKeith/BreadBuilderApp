@@ -35,16 +35,17 @@ def quiz():
 
 # Shows profile page and allows for updating
 @views.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
     form = UpdateAccountForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
         db.session.commit()
-        flash('You have updated your username!')
+        flash('You have updated your username!', 'success')
         return redirect(url_for('views.profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        return render_template('profile.html', user=current_user, form=form)
+    return render_template('profile.html', user=current_user, form=form)
 
 
 # Shows welcome page
