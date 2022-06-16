@@ -68,8 +68,7 @@
 
 }
 
-
-.usernamebox{
+.usernameBox{
   /* Rectangle 122 */
   position: absolute;
   width: 60%;
@@ -127,7 +126,7 @@
   border-radius: 15px;
 }
 
-.enterbox{
+.btn .btn-primary{
   position: absolute;
   width: 30%;
   height: 10%;

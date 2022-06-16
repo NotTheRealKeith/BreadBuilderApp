@@ -1,10 +1,59 @@
+# Laras code for authorizing users and information
+
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
+from datetime import datetime
 from flask_login import login_user, login_required, logout_user, current_user
+from datetime import datetime
 
 auth = Blueprint('auth', __name__)
+
+# Labels, values and colours for pie chart
+
+labels = [
+    'Gas', 'Rent', 'Food'
+]
+
+values = [
+    70, 200, 70
+]
+
+colors = [
+    "#F7464A", "#46BFBD", "#FDB45C"
+]
+
+# Authorising form post from home page for transactions, sending to database
+
+@auth.route('/home', methods=['GET', 'POST'])
+def home():
+
+    if request.method == 'POST':
+        transType = request.form.get('transType')
+        name = request.form.get('name')
+        amount = request.form.get('amount')
+        dateDue = request.form.get('dateDue')
+        dateDue = datetime.strptime(dateDue, "%Y-%M-%d")
+        frequency = request.form.get('frequency')
+
+        new_trans = Transaction(transType=transType, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
+        db.session.add(new_trans)
+        db.session.commit()
+        flash(f'Transaction Created! {name}', category='success')
+        return redirect(url_for('views.home'))
+
+    return render_template("home.html", user=current_user)
+
+# Showing a pie chart in reports page
+
+@auth.route('/report')
+def report():
+    pie_labels = labels
+    pie_values = values
+    return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
+
+# Authorising user login by checking their username and password with the database
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -26,12 +75,15 @@ def login():
     return render_template("login.html", user=current_user)
 
 
+# Logging out the user
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+# Signing up user through post form and sending the information to database
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -57,6 +109,7 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
+# Once user is signed up the template will show quizpage
 
 @auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
