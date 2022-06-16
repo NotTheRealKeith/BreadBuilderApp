@@ -20,4 +20,3 @@ class Transaction(db.Model):
     amount = db.Column(db.Float)
     dateDue = db.Column(db.DateTime, default=datetime.utcnow)
     frequency = db.Column(db.String)
-
