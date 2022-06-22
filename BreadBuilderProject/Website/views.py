@@ -1,4 +1,4 @@
-# Lara & Keith's code for rendering html files
+# Laras code for rendering html files
 
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
@@ -33,7 +33,7 @@ def quiz():
     return render_template('quiz.html', user=current_user)
 
 
-# Shows profile page and allows for updating
+# Shows profile page
 @views.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
