@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
+    income = db.Column(db.Float)
 
 
 # Creating transaction class with transaction model
@@ -32,6 +33,8 @@ class Transaction(db.Model):
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username',
                            validators=[DataRequired(), Length(min=2, max=20)])
+
+    income = FloatField('Income')
 
     submit = SubmitField('Update')
 

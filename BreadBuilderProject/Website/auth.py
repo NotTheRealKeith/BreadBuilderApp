@@ -29,7 +29,6 @@ colors = [
 
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
-
     if request.method == 'POST':
         transType = request.form.get('transType')
         name = request.form.get('name')
@@ -124,3 +123,16 @@ def quiz():
     else:
         return redirect(url_for('views.home'))
     return render_template('quiz.html', user=current_user)
+
+
+@auth.route('/income', methods=['GET', 'POST'])
+def income():
+    if request.method == 'POST':
+        income = request.form.get('income')
+
+        new_income = User(income=income)
+        db.session.add(new_income)
+        db.session.commit()
+        flash(f'Income updated!', category='success')
+
+    return render_template('income.html', user=current_user)
