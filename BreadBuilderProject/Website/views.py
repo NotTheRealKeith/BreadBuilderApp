@@ -2,6 +2,7 @@
 
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
+from .models import Transaction
 
 views = Blueprint('views', __name__)
 
@@ -10,7 +11,9 @@ views = Blueprint('views', __name__)
 @views.route('/home')
 @login_required
 def home():
-    return render_template("home.html", user=current_user)
+    currid = current_user.id
+    trans = Transaction.query.filter_by(userid=currid).order_by(Transaction.dateDue).all()
+    return render_template("home.html", user=current_user, trans=trans)
 
 # Shows about page
 @views.route('/about')

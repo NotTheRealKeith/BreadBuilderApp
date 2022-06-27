@@ -5,6 +5,7 @@
 {% block content %}
 <link rel="stylesheet" href="../static/home.css">
 
+
 <dev class = "dashboard"> <!--Creating a whole dashboard-->
     <dev class = "expenseRect">
         <form method="POST"> <!--Using forms to get all transaction data-->
@@ -56,7 +57,7 @@
                   <option value="5">Yearly</option>
               </select>
             </div>
-          <br />
+          <br/>
           <button type="submit" class="btn btn-primary">Confirm</button> <!--Once button is pressed it will send info to auth.py-->
         </form>
 
@@ -66,19 +67,33 @@
             <h3 class="titleExpense">Upcoming Expenses</h3>
                 <br>
                 <ul class="list-group">
-              <li class="list-group-item">
-                Netflix
-                <span class="badge badge-pill">$19</span>
-              </li>
-              <li class="list-group-item">
-                Gas
-                <span class="badge badge-pill">$60</span>
-              </li>
-              <li class="list-group-item">
-                Rent
-                <span class="badge badge-pill">$210</span>
-              </li>
+                  {% for t in trans %}
+                        <li class="list-group-item">
+                            {{ t.name }}
+                            <span class="badge badge-light">{{ t.amount }}</span>
+                            <div class="panel-group" id="accordion">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <button data-toggle="collapse" data-target="#demo">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{ t.id }}">View</a>
+                                  </button>
+                                </div>
+                                <div id="{{ t.id }}" class="panel-collapse collapse in">
+                                  <div class="panel-body">
+                                      <li class="list-group-item">
+                                          {{ t.name }}
+                                          {{ t.amount }}
+                                          {{ t.dateDue }}
+                                          <span class="badge badge-light">{{ t.frequency }}</span>
+                                      </li>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                  {% endfor %}
             </ul>
     </dev>
 </dev>
+
+
 {% endblock %}

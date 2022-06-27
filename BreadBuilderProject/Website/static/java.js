@@ -43,24 +43,27 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
 // modal JS end
 
 // Laras code creating pie chart for report page
 
-var pieData = [
-            {% for item, label, colors in set %}
-              {
-                value: {{item}},
-                label: "{{label}}",
-                color : "{{colors}}"
-              },
-            {% endfor %}
-          ];
-
-          // get bar chart canvas
-          var mychart = document.getElementById("chart").getContext("2d");
-          steps = 10
-          max = {{ max }}
-
-          // draw pie chart
-          new Chart(document.getElementById("chart").getContext("2d")).Pie(pieData);
+//var pieData = [
+//            {% for t in set %}
+//              {
+//                value: {{item}},
+//                label: "{{label}}",
+//                color : "{{colors}}"
+//              },
+//            {% endfor %}
+//          ];
+//
+//          // get bar chart canvas
+//          var mychart = document.getElementById("chart").getContext("2d");
+//          steps = 10
+//          max = {{ max }}
+//
+//          // draw pie chart
+//          new Chart(document.getElementById("chart").getContext("2d")).Pie(pieData);
