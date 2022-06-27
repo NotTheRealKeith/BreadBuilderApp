@@ -2,7 +2,7 @@
 
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
-from Website.models import UpdateAccountForm
+from .models import Transaction, UpdateAccountForm
 from . import db
 
 views = Blueprint('views', __name__)
@@ -12,7 +12,9 @@ views = Blueprint('views', __name__)
 @views.route('/home')
 @login_required
 def home():
-    return render_template("home.html", user=current_user)
+    currid = current_user.id
+    trans = Transaction.query.filter_by(userid=currid).order_by(Transaction.dateDue).all()
+    return render_template("home.html", user=current_user, trans=trans)
 
 
 # Shows about page
