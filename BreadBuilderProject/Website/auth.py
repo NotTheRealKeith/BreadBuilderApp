@@ -5,7 +5,7 @@ from .models import User, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
-from datetime import date
+from datetime import datetime
 
 auth = Blueprint('auth', __name__)
 
@@ -14,21 +14,15 @@ auth = Blueprint('auth', __name__)
 
 # Authorising form post from home page for transactions, sending to database
 
-
-
-
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
-    currid = current_user.id
-    trans = Transaction.query.filter_by(userid=currid).order_by(Transaction.dateDue).all()
-
     if request.method == 'POST':
         userid = current_user.id
         transType = request.form.get('transType')
         name = request.form.get('name')
         amount = request.form.get('amount')
         dateDue = request.form.get('dateDue')
-        dateDue = date.strptime(dateDue, "%Y-%M-%d")
+        dateDue = datetime.strptime(dateDue, "%Y-%M-%d")
         frequency = request.form.get('frequency')
 
         if frequency == 1:
@@ -50,12 +44,14 @@ def home():
 
     return render_template("home.html", user=current_user, trans=trans)
 
+
 # Showing a pie chart in reports page
 
 @auth.route('/report')
 def report():
 
     return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
+
 
 # Authorising user login by checking their username and password with the database
 
@@ -87,6 +83,7 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+
 # Signing up user through post form and sending the information to database
 
 @auth.route('/signup', methods=['GET', 'POST'])
@@ -113,7 +110,8 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
-# Once user is signed up the template will show quizpage
+
+# Once user is signed up the template will show quiz page
 
 @auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
@@ -125,3 +123,14 @@ def quiz():
     return render_template('quiz.html', user=current_user)
 
 
+@auth.route('/income', methods=['GET', 'POST'])
+def income():
+    if request.method == 'POST':
+        income = request.form.get('income')
+
+        new_income = User(income=income)
+        db.session.add(new_income)
+        db.session.commit()
+        flash(f'Income updated!', category='success')
+
+    return render_template('income.html', user=current_user)
