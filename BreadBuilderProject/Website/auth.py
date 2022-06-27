@@ -24,11 +24,11 @@ colors = [
     "#F7464A", "#46BFBD", "#FDB45C"
 ]
 
+
 # Authorising form post from home page for transactions, sending to database
 
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
-
     if request.method == 'POST':
         transType = request.form.get('transType')
         name = request.form.get('name')
@@ -45,6 +45,7 @@ def home():
 
     return render_template("home.html", user=current_user)
 
+
 # Showing a pie chart in reports page
 
 @auth.route('/report')
@@ -52,6 +53,7 @@ def report():
     pie_labels = labels
     pie_values = values
     return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
+
 
 # Authorising user login by checking their username and password with the database
 
@@ -83,6 +85,7 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+
 # Signing up user through post form and sending the information to database
 
 @auth.route('/signup', methods=['GET', 'POST'])
@@ -109,7 +112,8 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
-# Once user is signed up the template will show quizpage
+
+# Once user is signed up the template will show quiz page
 
 @auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
@@ -121,3 +125,14 @@ def quiz():
     return render_template('quiz.html', user=current_user)
 
 
+@auth.route('/income', methods=['GET', 'POST'])
+def income():
+    if request.method == 'POST':
+        income = request.form.get('income')
+
+        new_income = User(income=income)
+        db.session.add(new_income)
+        db.session.commit()
+        flash(f'Income updated!', category='success')
+
+    return render_template('income.html', user=current_user)
