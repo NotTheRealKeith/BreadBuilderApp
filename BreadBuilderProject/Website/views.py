@@ -2,19 +2,20 @@
 
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
-from .models import Transaction, UpdateAccountForm
+from .models import Transaction, User, UpdateAccountForm
 from . import db
 
 views = Blueprint('views', __name__)
 
 
-# Shows home page
+# Shows home page and sends information from both user and transaction tables for user expenses
 @views.route('/home')
 @login_required
 def home():
     currid = current_user.id
     trans = Transaction.query.filter_by(userid=currid).order_by(Transaction.dateDue).all()
-    return render_template("home.html", user=current_user, trans=trans)
+    UserIncome = User.query.filter_by(id=currid)
+    return render_template("home.html", user=current_user, trans=trans, UserIncome=UserIncome)
 
 
 # Shows about page

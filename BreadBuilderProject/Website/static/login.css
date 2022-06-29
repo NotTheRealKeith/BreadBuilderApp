@@ -1,22 +1,9 @@
-/* Blur effect */ /*Started login css*/
-.blurrect{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
 
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(3px);
-}
-/* Note: backdrop-filter has minimal browser support */
-
-/* Rectangle 122 */
-.whiteloginrect{
+.LoginRect{
   position: absolute;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   width: 40%;
   height: 60%;
   top:50%;
@@ -28,117 +15,21 @@
 
   font-family: 'Lato';
   font-style: normal;
-  font-weight: 350;
-  font-size: 35px;
-  line-height: 42px;
+  font-size: 2vh;
+  line-height: 20px;
   /* identical to box height */
 
   color: #785E47;
 }
 
-.loginbox{
-  display: inline;
-}
-
-.cancelBtn{
-  position: absolute;
-  display: flex;
-  width: 5%;
-  right: 5%;
-  top: 5%;
-}
-
-.logintext{
-  /* Enter Login */
-
-    position: absolute;
-    display: flex;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-550%);
-
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 350;
-    font-size: 35px;
-    line-height: 42px;
-    /* identical to box height */
-
-    color: #785E47;
-
-}
-
-.usernameBox{
-  /* Rectangle 122 */
-  position: absolute;
-  width: 60%;
-  height: 10%;
-  top:52%;
-  left:50%;
-  transform:translate(-50%,-250%);
-
-  text-align: left;
-  padding-left: 5%;
-  vertical-align: middle;
-  align-items: center;
-  display: flex;
-  /* Enter Username */
-
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
-  /* identical to box height */
-
-  color: #412711;
-
-  background: #DCDCDC;
-  border-radius: 15px;
-}
-.passwordbox{
-  /* Rectangle 123 */
-
-  position: absolute;
-  width: 60%;
-  height: 10%;
-  top:45%;
-  left:50%;
-  transform:translate(-50%,0%);
-
-  text-align: left;
-  padding-left: 5%;
-  vertical-align: middle;
-  align-items: center;
-  display: flex;
-  /* Enter Username */
-
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
-  /* identical to box height */
-
-  color: #412711;
-
-  background: #DCDCDC;
-  border-radius: 15px;
-}
-
-.btn .btn-primary{
+.btn{
   position: absolute;
   width: 30%;
   height: 10%;
-  top: 68%;
+  top: 80%;
   left:50%;
   transform:translate(-50%,0%);
 
-  /* text-align: center;
-  vertical-align: middle;
-  align-items: center;
-  display: flex; */
-  /* Enter Username */
 
   font-family: 'Lato';
   font-style: normal;
@@ -147,27 +38,4 @@
 
   background: #785E47;
   border-radius: 15px;
-}
-
-p{
-  position: absolute;
-  top:80%;
-  left:50%;
-  transform:translate(-50%,0%);
-
-  text-align: center;
-  padding-left: 5%;
-  vertical-align: middle;
-  align-items: center;
-  display: flex;
-  /* Enter Username */
-
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21px;
-  /* identical to box height */
-
-  color: #412711;
 }

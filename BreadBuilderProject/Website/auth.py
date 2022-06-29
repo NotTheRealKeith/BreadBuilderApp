@@ -18,31 +18,30 @@ auth = Blueprint('auth', __name__)
 def home():
     if request.method == 'POST':
         userid = current_user.id
-        transType = request.form.get('transType')
         name = request.form.get('name')
         amount = request.form.get('amount')
         dateDue = request.form.get('dateDue')
         dateDue = datetime.strptime(dateDue, "%Y-%M-%d")
         frequency = request.form.get('frequency')
 
-        if frequency == 1:
+        if frequency == "1":
             frequency = "Once"
-        elif frequency == 2:
+        elif frequency == "2":
             frequency = "Weekly"
-        elif frequency == 3:
+        elif frequency == "3":
             frequency = "Fortnightly"
-        elif frequency == 4:
+        elif frequency == "4":
             frequency = "Monthly"
-        elif frequency == 5:
+        elif frequency == "5":
             frequency = "Yearly"
 
-        new_trans = Transaction(userid=userid, transType=transType, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
+        new_trans = Transaction(userid=userid, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
         db.session.add(new_trans)
         db.session.commit()
-        flash(f'Transaction Created! {name}', category='success')
+        flash(f'Transaction Created, {name}!', category='success')
         return redirect(url_for('views.home'))
 
-    return render_template("home.html", user=current_user, trans=trans)
+    return render_template("home.html", user=current_user)
 
 
 # Showing a pie chart in reports page
