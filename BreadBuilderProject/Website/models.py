@@ -22,7 +22,6 @@ class User(db.Model, UserMixin):
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userid = db.Column(db.Integer)
-    transType = db.Column(db.String(50))
     name = db.Column(db.String(150))
     amount = db.Column(db.Float)
     dateDue = db.Column(db.DateTime, default=datetime.utcnow)
