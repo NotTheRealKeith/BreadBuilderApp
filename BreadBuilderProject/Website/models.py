@@ -1,4 +1,4 @@
-# Laras code for creating classes for database information
+# Laras + Keiths code for creating classes for database information
 
 from . import db
 from flask_login import UserMixin, current_user
@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     income = db.Column(db.Float)
+    accountType = db.Column(db.Float)
 
 
 # Creating transaction class with transaction model
