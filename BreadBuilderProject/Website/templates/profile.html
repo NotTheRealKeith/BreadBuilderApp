@@ -11,7 +11,8 @@
         {% if current_user.is_authenticated %}
         <h1>{{ current_user.username }}</h1>
         {% endif %}
-        <h3>Super Saver</h3>
+        <h3>Super Saver (Account type)</h3>
+        <h3>Income: {{ current_user.income }}</h3>
     </div>
 
     <!--user details-->
@@ -21,9 +22,9 @@
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Account Info</legend>
+            <!--update username-->
             <div class="form-group">
                 {{ form.username.label(class="form-control-label") }}
-
                 {% if form.username.errors %}
                 {{ form.username(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -36,7 +37,15 @@
                 {% endif %}
             </div>
 
+            <!--update income-->
+            <div class="form-group">
+                {{ form.income.label(class="form-control-label") }}
+                {{ form.income(class="form-control form-control-lg") }}
+            </div>
+
         </fieldset>
+
+        <!--confirm changes-->
         <div class="form-group">
             {{ form.submit(class="btn btn-outline-success") }}
         </div>

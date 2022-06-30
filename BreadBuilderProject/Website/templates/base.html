@@ -18,6 +18,9 @@
             href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
             crossorigin="anonymous"
     />
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+
 
     <title>Bread Builder</title>
 </head>
@@ -84,11 +87,16 @@ messages %} {% for category, message in messages %} {% if category ==
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="javascript.js"></script>
+<script src="java.js"></script>
 
 <script
         type="text/javascript"
-        src="{{ url_for('static', filename='index.js') }}"
+        src="{{ url_for('static', filename='java.js') }}"
+></script>
+
+<script
+        type="text/javascript"
+        src="java.js"
 ></script>
 
 <script src="https://kit.fontawesome.com/eeb3ca3e76.js" crossorigin="anonymous"></script>
