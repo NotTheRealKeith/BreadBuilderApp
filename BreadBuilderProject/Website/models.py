@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     income = db.Column(db.Float)
+    acc
 
 
 # Creating transaction class with transaction model
@@ -43,3 +44,4 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('That username is taken. Please choose a different one.')
+

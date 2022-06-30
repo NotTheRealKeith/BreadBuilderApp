@@ -43,6 +43,7 @@ def income():
 @login_required
 def profile():
     form = UpdateAccountForm()
+
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.income = form.income.data

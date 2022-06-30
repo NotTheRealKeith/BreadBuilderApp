@@ -125,6 +125,7 @@ def quiz():
     return render_template('quiz.html', user=current_user)
 
 
+# Once user selects account type the next page will ask for users income
 @auth.route('/income', methods=['GET', 'POST'])
 def income():
     if request.method == 'POST':
@@ -135,4 +136,4 @@ def income():
         db.session.commit()
         flash(f'Income updated!', category='success')
 
-    return render_template('income.html', user=current_user)
+    return render_template('home.html', user=current_user, income=income)
