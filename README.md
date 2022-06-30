@@ -14,3 +14,6 @@ THINGS YOU NEED TO IN PYCHARM TERMINAL:
 
 
 Debug main.py and click link to run application
+
+OTHER NOTES:
+Please enter intergers only when entering data for your income. Thank you!
