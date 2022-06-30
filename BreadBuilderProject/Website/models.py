@@ -1,4 +1,4 @@
-# Laras code for creating classes for database information
+# Laras + Keiths code for creating classes for database information
 
 from . import db
 from flask_login import UserMixin, current_user
@@ -15,14 +15,14 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     income = db.Column(db.Float)
-    acc
+    accountType = db.Column(db.Float)
 
 
 # Creating transaction class with transaction model
 
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    transType = db.Column(db.String(50))
+    userid = db.Column(db.Integer)
     name = db.Column(db.String(150))
     amount = db.Column(db.Float)
     dateDue = db.Column(db.DateTime, default=datetime.utcnow)
@@ -44,4 +44,3 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('That username is taken. Please choose a different one.')
-

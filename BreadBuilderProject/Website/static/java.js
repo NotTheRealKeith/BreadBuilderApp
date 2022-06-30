@@ -2,7 +2,7 @@ console.log('javascript');
 
 window.onload=function(){
 
-  $.fn.outerHTML = function(){
+$.fn.outerHTML = function(){
 
     // IE, Chrome & Safari will comply with the non-standard outerHTML, all others (FF) will have a fall-back for cloning
     return (!this.length) ? this : (this[0].outerHTML || (
@@ -14,7 +14,7 @@ window.onload=function(){
           return contents;
     })(this[0]));
 
-  }
+}
 
 // modal JS start
 
@@ -43,24 +43,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
 // modal JS end
 
-// Laras code creating pie chart for report page
 
-var pieData = [
-            {% for item, label, colors in set %}
-              {
-                value: {{item}},
-                label: "{{label}}",
-                color : "{{colors}}"
-              },
-            {% endfor %}
-          ];
-
-          // get bar chart canvas
-          var mychart = document.getElementById("chart").getContext("2d");
-          steps = 10
-          max = {{ max }}
-
-          // draw pie chart
-          new Chart(document.getElementById("chart").getContext("2d")).Pie(pieData);

@@ -1,28 +1,16 @@
-# Laras code for authorizing users and information
+# Laras + Keiths code for authorizing users and information
 
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Transaction
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
-from datetime import datetime
 from flask_login import login_user, login_required, logout_user, current_user
 from datetime import datetime
 
 auth = Blueprint('auth', __name__)
 
+
 # Labels, values and colours for pie chart
-
-labels = [
-    'Gas', 'Rent', 'Food'
-]
-
-values = [
-    70, 200, 70
-]
-
-colors = [
-    "#F7464A", "#46BFBD", "#FDB45C"
-]
 
 
 # Authorising form post from home page for transactions, sending to database
@@ -30,17 +18,28 @@ colors = [
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        transType = request.form.get('transType')
+        userid = current_user.id
         name = request.form.get('name')
         amount = request.form.get('amount')
         dateDue = request.form.get('dateDue')
         dateDue = datetime.strptime(dateDue, "%Y-%M-%d")
         frequency = request.form.get('frequency')
 
-        new_trans = Transaction(transType=transType, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
+        if frequency == "1":
+            frequency = "Once"
+        elif frequency == "2":
+            frequency = "Weekly"
+        elif frequency == "3":
+            frequency = "Fortnightly"
+        elif frequency == "4":
+            frequency = "Monthly"
+        elif frequency == "5":
+            frequency = "Yearly"
+
+        new_trans = Transaction(userid=userid, name=name, amount=amount, dateDue=dateDue, frequency=frequency)
         db.session.add(new_trans)
         db.session.commit()
-        flash(f'Transaction Created! {name}', category='success')
+        flash(f'Transaction Created, {name}!', category='success')
         return redirect(url_for('views.home'))
 
     return render_template("home.html", user=current_user)
@@ -50,8 +49,6 @@ def home():
 
 @auth.route('/report')
 def report():
-    pie_labels = labels
-    pie_values = values
     return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
 
 
@@ -118,14 +115,35 @@ def signup():
 @auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
     if request.method == 'POST':
-        if request.form['week_button'] in quiz.form:
-            pass
-    else:
-        return redirect(url_for('views.home'))
+        accountType = request.form.get('accountType')
+
+        if accountType == "1":
+            accountType = 0.10
+            flash("option 1 selected!!")
+
+        elif accountType == "2":
+            accountType = 0.30
+            flash("Option 2 selected!!")
+
+        elif accountType == "3":
+            accountType = 0.50
+            flash("Option 3 selected!!")
+
+        elif accountType == "4":
+            accountType = 0.80
+            flash("Option 4 selected!!")
+
+        newAccType = User(accountType=accountType)
+        db.session.add(newAccType)
+        db.session.commit()
+        flash("Account Type has been selected!")
+        return redirect(url_for('views.income'))
+
     return render_template('quiz.html', user=current_user)
 
 
-# Once user selects account type the next page will ask for users income
+# once the user has selected their account type they are asked for their weekly income
+
 @auth.route('/income', methods=['GET', 'POST'])
 def income():
     if request.method == 'POST':
@@ -136,4 +154,4 @@ def income():
         db.session.commit()
         flash(f'Income updated!', category='success')
 
-    return render_template('home.html', user=current_user, income=income)
+    return render_template('home.html', user=current_user)

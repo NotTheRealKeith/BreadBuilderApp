@@ -1,3 +1,4 @@
+<!--Keith's code-->
 {% extends "base.html" %}
 
 {% block content %}
@@ -11,8 +12,8 @@
         {% if current_user.is_authenticated %}
         <h1>{{ current_user.username }}</h1>
         {% endif %}
-        <h3>Super Saver (Account type)</h3>
-        <h3>Income: {{ current_user.income }}</h3>
+        <h3>Account Type: ({{ current_user.accountType }})</h3>
+        <h3>Income: ${{ current_user.income }}</h3>
     </div>
 
     <!--user details-->

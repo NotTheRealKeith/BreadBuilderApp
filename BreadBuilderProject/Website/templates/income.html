@@ -1,3 +1,4 @@
+<!--Keiths code-->
 {% extends "base.html" %} <!--Inherits from base html-->
 
 {% block content %}
@@ -13,15 +14,15 @@
     </div>
 
     <dev class="Income_container">
-        <form method="POST"> <!--Using forms to get all transaction data-->
-
+        <form method="POST"> <!--Using forms to get income data-->
             <br>
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Income Amount $</span>
                 </div>
-                <input type="float" name="income" class="form-control" aria-label="Amount (to the nearest dollar)">
+
+                <input type="text" name="income" class="form-control" aria-label="Amount (to the nearest dollar)">
             </div>
 
             <br/>
