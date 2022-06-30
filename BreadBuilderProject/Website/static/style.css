@@ -16,7 +16,7 @@
 
 body {
   height: 100vh;
-  background: linear-gradient(#BC977B, white);
+  background: linear-gradient(180deg, #BC977B 0%, rgba(188, 151, 123, 0.945736) 27.35%, rgba(188, 151, 123, 0.807336) 49.72%, rgba(188, 151, 123, 0.646041) 70.76%, rgba(188, 151, 123, 0.572725) 79.62%, rgba(188, 151, 123, 0.435094) 86.93%, rgba(188, 151, 123, 0.390984) 92.69%, rgba(188, 151, 123, 0.238875) 96.01%, rgba(188, 151, 123, 0.1225) 97.56%, rgba(188, 151, 123, 0) 100%);
 }
 
 /* nav styling start */
@@ -142,18 +142,7 @@ nav {
   font-size: 18px;
 }
 
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+
 
 /* about us page styling end */
 /* quiz styling start */

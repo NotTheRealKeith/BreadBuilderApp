@@ -1,3 +1,7 @@
+body {
+  height: 100%;
+  background: linear-gradient(180deg, #BC977B 0%, rgba(188, 151, 123, 0.945736) 27.35%, rgba(188, 151, 123, 0.807336) 49.72%, rgba(188, 151, 123, 0.646041) 70.76%, rgba(188, 151, 123, 0.572725) 79.62%, rgba(188, 151, 123, 0.435094) 86.93%, rgba(188, 151, 123, 0.390984) 92.69%, rgba(188, 151, 123, 0.238875) 96.01%, rgba(188, 151, 123, 0.1225) 97.56%, rgba(188, 151, 123, 0) 100%);
+}
 
 h1{
   color: white;
@@ -5,12 +9,7 @@ h1{
   top: 10%;
 }
 
-
-.pieImg {
-    position absolute;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 10%;
-    width: 50%;
+#container {
+    width: 100%;
+    height: 100%;
 }
