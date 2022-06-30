@@ -1,4 +1,4 @@
-# Laras code for authorizing users and information
+# Laras + Keiths code for authorizing users and information
 
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Transaction
@@ -8,6 +8,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from datetime import datetime
 
 auth = Blueprint('auth', __name__)
+
 
 # Labels, values and colours for pie chart
 
@@ -48,7 +49,6 @@ def home():
 
 @auth.route('/report')
 def report():
-
     return render_template('report.html', title='Weekly Spending Graph', max=17000, set=zip(values, labels, colors))
 
 
@@ -115,12 +115,34 @@ def signup():
 @auth.route('/quiz', methods=['GET', 'POST'])
 def quiz():
     if request.method == 'POST':
-        if request.form['week_button'] in quiz.form:
-            pass
-    else:
-        return redirect(url_for('views.home'))
+        accountType = request.form.get('accountType')
+
+        if accountType == "1":
+            accountType = 0.10
+            flash("option 1 selected!!")
+
+        elif accountType == "2":
+            accountType = 0.30
+            flash("Option 2 selected!!")
+
+        elif accountType == "3":
+            accountType = 0.50
+            flash("Option 3 selected!!")
+
+        elif accountType == "4":
+            accountType = 0.80
+            flash("Option 4 selected!!")
+
+        newAccType = User(accountType=accountType)
+        db.session.add(newAccType)
+        db.session.commit()
+        flash("Account Type has been selected!")
+        return redirect(url_for('views.income'))
+
     return render_template('quiz.html', user=current_user)
 
+
+# once the user has selected their account type they are asked for their weekly income
 
 @auth.route('/income', methods=['GET', 'POST'])
 def income():
@@ -132,4 +154,4 @@ def income():
         db.session.commit()
         flash(f'Income updated!', category='success')
 
-    return render_template('income.html', user=current_user)
+    return render_template('home.html', user=current_user)
